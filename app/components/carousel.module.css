@@ -1,0 +1,42 @@
+.carouselContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imageWrapper {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 12px 12px 0px 0px;
+}
+
+.image {
+  height: 100%;
+  object-fit: cover;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #d9d9d980;
+  color: white;
+  border: none;
+  height: 100%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.arrow:hover {
+  background-color: #7b807abb;
+}
+
+.prev {
+  left: 0px;
+}
+
+.next {
+  right: 0px;
+}
