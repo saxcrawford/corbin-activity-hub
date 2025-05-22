@@ -5,7 +5,7 @@ import Image from "next/image";
 import Navbar from "./components/navbar";
 import Link from "next/link";
 import Carousel from "./components/carousel";
-import Clock from "react-live-clock";
+import Clock from "./components/clock";
 import LoadingSpinner from "./components/loading";
 import { getAttributions } from "./lib/data/attributions";
 
