@@ -173,37 +173,19 @@ function useWeather(refreshInterval = 60000) {
   const [weather, setWeather] = useState<Weather | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
+  const API_BASE_URL = 'https://weather-api-43md.onrender.com';
 
   const fetchWeather = useCallback(async () => {
     try {
-      const weatherApiUrl = process.env.NEXT_PUBLIC_WEATHER_API_URL;
-      if (!weatherApiUrl) {
-        throw new Error('Weather API URL is not defined');
-      }
-
-      const url = new URL(weatherApiUrl);
-      url.searchParams.append('_t', Date.now().toString());
-
-      const response = await fetch(url, {
-        cache: 'no-store',
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-
+      const response = await fetch(`${API_BASE_URL}/api/weather/currentCorbin`);
       if (!response.ok) {
         throw new Error(`Failed to fetch weather: ${response.status}`);
       }
-
       const data = await response.json();
       setWeather(data);
-      setError(null);
     } catch (err) {
-      if (err instanceof TypeError && err.message.includes('fetch')) {
-        setError(new Error("Network error. Please check your connection."));
-      } else {
-        setError(err instanceof Error ? err : new Error(String(err)));
-      }
+      console.error("Weather fetch error:", err);
+      setError(err as Error);
     } finally {
       setLoading(false);
     }

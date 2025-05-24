@@ -27,13 +27,12 @@ function Weather() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
+  const API_BASE_URL = 'https://weather-api-43md.onrender.com';
 
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const apiUrl = process.env.NEXT_PUBLIC_FORECAST_API_URL || "http://localhost:8080/api/weather/corbin";
-
-        const response = await fetch(apiUrl);
+        const response = await fetch(`${API_BASE_URL}/api/weather/corbin`);
         if (!response.ok) {
           throw new Error(`Failed to fetch weather: ${response.status}`);
         }

@@ -1,82 +1,70 @@
 import React from "react";
 import Navbar from "../components/navbar";
-import { getRestaurants } from "../lib/data/restaurants";
-
-const TrailsCard = ({
-  image,
-  title,
-  description,
-}: {
-  image: { src: string };
-  title: string;
-  description: string;
-}) => {
-  return (
-    <div
-      style={{
-        backgroundImage: `url(${image.src})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-      className="rounded-2xl bg-corbinGreen shadow-lg p-4 hover:scale-105 transition duration-200"
-    >
-      <div className="rounded-2xl shadow-lg p-4 h-full text-lightCorbin transition duration-200">
-        <h2 className="text-xl font-semibold mb-3">{title}</h2>
-        <p className="text-base font-normal">{description}</p>
-      </div>
-    </div>
-  );
-};
 
 function Corbin_Eatery() {
-  const restaurantInfo = getRestaurants();
-
-  const groupedRestaurants = restaurantInfo.reduce((acc, restaurant) => {
-    if (!acc[restaurant.type]) {
-      acc[restaurant.type] = [];
-    }
-    acc[restaurant.type].push(restaurant);
-    return acc;
-  }, {});
-
   return (
-    <>
-      <div className="bg-background h-screen">
-        <div className="flex gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4">
-          <Navbar />
-        </div>
-        <div className="flex flex-row justify-center">
-          <div className="flex flex-col text-center">
-            <h1 className="text-[48px]/15 font-semibold text-corbinRed">
-              Taste of Corbin
-            </h1>
-            <p className="text-[20px]/6 font-semibold text-corbinBlue">
-              Find the best places to eat in Corbin, Kentucky!
-            </p>
-            <p className="text-[15px]/5 font-medium text-corbinBlue">
-              Did you know Corbin is home to the original Kentucky Fried
-              Chicken?
-            </p>
+      <>
+        <div className="bg-background min-h-screen">
+          <div className="flex gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4">
+            <Navbar />
+          </div>
+
+          <div className="flex flex-col items-center justify-center px-4">
+            <div className="text-center max-w-2xl mx-auto">
+
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-corbinRed mb-4">
+                Under Construction
+              </h1>
+
+              <h2 className="text-2xl sm:text-3xl font-semibold text-corbinBlue mb-6">
+                Taste of Corbin
+              </h2>
+
+              <p className="text-lg sm:text-xl text-corbinBlue mb-4 leading-relaxed">
+                We&apos;re cooking up something special! Our restaurant guide is currently being prepared
+                to showcase the best dining experiences in Corbin, Kentucky.
+              </p>
+
+              <p className="text-base sm:text-lg text-corbinBlue/80 mb-8">
+                Come back soon to discover amazing local eateries, including the birthplace of Kentucky Fried Chicken!
+              </p>
+
+              <div className="w-full max-w-md mx-auto mb-8">
+                <div className="flex justify-between text-sm text-corbinBlue mb-2">
+                  <span>Progress</span>
+                  <span>25%</span>
+                </div>
+                <div className="w-full bg-corbinGray/30 rounded-full h-3">
+                  <div
+                      className="bg-gradient-to-r from-corbinRed to-corbinBlue h-3 rounded-full transition-all duration-1000 ease-out"
+                      style={{ width: '25%' }}
+                  ></div>
+                </div>
+              </div>
+
+              <div className="bg-corbinGreen/10 border border-corbinGreen/20 rounded-xl p-6 mb-8">
+                <h3 className="text-lg font-semibold text-corbinGreen mb-2">
+                  Did You Know?
+                </h3>
+                <p className="text-corbinBlue">
+                  Corbin, Kentucky is the birthplace of Kentucky Fried Chicken!
+                  Colonel Sanders opened his first restaurant here in 1930.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <p className="text-sm text-corbinBlue/60 font-medium">
+                  Expected to be available soon
+                </p>
+              </div>
+            </div>
+
+            <div className="absolute top-40 right-20 opacity-20">
+              <div className="w-6 h-6 bg-corbinBlue rounded-full animate-pulse delay-300"></div>
+            </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-10">
-          {Object.entries(groupedRestaurants).map(([type, restaurants]) => (
-            <div key={type} className="flex flex-col gap-4">
-              <h2 className="text-xl font-semibold text-corbinRed">{type}</h2>
-              {restaurants.map((restaurant) => (
-                <TrailsCard
-                  key={restaurant.id}
-                  image={restaurant.image}
-                  title={restaurant.name}
-                  description={restaurant.description}
-                />
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
-    </>
+      </>
   );
 }
 
