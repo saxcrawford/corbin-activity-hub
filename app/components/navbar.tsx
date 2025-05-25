@@ -30,7 +30,7 @@ const NavbarLink = ({
         <Link
             href={href}
             onClick={onClick}
-            className={`cursor-pointer block font-semibold text-corbinRed hover:text-corbinRed/70 transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-corbinRed focus-visible:ring-opacity-75 ${className}`}
+            className={`cursor-pointer block font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-corbinRed focus-visible:ring-opacity-75 ${className}`}
         >
             {children}
         </Link>
@@ -88,7 +88,7 @@ const NavbarDropdown = ({title, items}: NavbarDropdownProps) => {
                         >
                             <PopoverPanel
                                 anchor="bottom"
-                                className="absolute z-10 mt-2 w-64 rounded-lg bg-corbinGray shadow-lg ring-1 ring-black/5 focus:outline-none"
+                                className="absolute z-10 mt-2 w-64 rounded-lg bg-corbinGray border-1 border-corbinGray/50 ring-1 ring-black/50 ring-opacity-5 focus:outline-none"
                             >
                                 <div className="p-3 text-corbinBlue">
                                     {items.map((item, index) => (
@@ -153,7 +153,7 @@ function Navbar() {
             </div>
 
             <div className="hidden lg:flex items-center space-x-1 md:space-x-2">
-                <NavbarLink href="/history" className="py-2 px-2 md:px-3 text-base md:text-lg">
+                <NavbarLink href="/history" className="py-2 px-2 md:px-3 text-corbinRed text-base md:text-lg">
                     History
                 </NavbarLink>
                 <NavbarDropdown title="Explore" items={exploreItems} />
@@ -161,7 +161,7 @@ function Navbar() {
             </div>
             <div className="lg:hidden">
                 <Popover>
-                    {({ open, close }) => ( // Expose close to pass to links
+                    {({ open, close }) => (
                         <>
                             <PopoverButton
                                 className="inline-flex items-center justify-center p-2 rounded-md text-corbinRed hover:text-corbinRed/70 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-corbinRed"
@@ -187,7 +187,7 @@ function Navbar() {
                                     focus
                                     className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right lg:hidden z-40"
                                 >
-                                    <div className="rounded-lg shadow-xl bg-corbinGray">
+                                    <div className="rounded-lg shadow-xl bg-corbinGray border-1 border-corbinGray/50 ring-1 ring-black/50 ring-opacity-5 focus:outline-none">
                                         <div className="pt-5 pb-6 px-5">
                                             <div className="flex items-center justify-between">
                                                 <div>
@@ -211,14 +211,14 @@ function Navbar() {
                                             </div>
                                             <div className="mt-8">
                                                 <nav className="grid gap-y-4">
-                                                    <NavbarLink href="/history" className="text-lg  hover:text-lightCorbin hover:bg-corbinBlue p-2 rounded-md py-2" onClick={close}>
+                                                    <NavbarLink href="/history" className="text-lg text-corbinBlue hover:text-lightCorbin hover:bg-corbinBlue p-2 rounded-md py-2" onClick={close}>
                                                         History
                                                     </NavbarLink>
                                                     <div>
                                                         <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
                                                             Explore
                                                         </h3>
-                                                        <div className="grid gap-y-2">
+                                                        <div className="grid gap-y-2 text-corbinBlue">
                                                             {exploreItems.map((item) => (
                                                                 <NavbarLink
                                                                     key={item.href}
@@ -235,7 +235,7 @@ function Navbar() {
                                                         <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-2">
                                                             Plan
                                                         </h3>
-                                                        <div className="grid gap-y-2">
+                                                        <div className="grid gap-y-2 text-corbinBlue">
                                                             {planItems.map((item) => (
                                                                 <NavbarLink
                                                                     key={item.href}

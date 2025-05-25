@@ -156,7 +156,7 @@ MainCard.displayName = 'MainCard';
 
 const PageLayout = memo(({ children }: { children: React.ReactNode }) => (
     <div className="bg-background min-h-screen flex flex-col">
-        <div className="flex-shrink-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 p-4 sm:p-6 md:px-8 lg:px-10">
+        <div className="w-full">
             <Navbar />
         </div>
         <main className="flex-grow flex flex-col lg:flex-row items-center lg:items-start justify-center px-4 sm:px-6 md:px-8 lg:px-10 xl:px-16 py-6 sm:py-8 md:py-10 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
