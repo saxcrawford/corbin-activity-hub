@@ -25,7 +25,7 @@ interface Weather {
 }
 
 const InfoSection = memo(() => (
-    <div className="flex flex-col self-center text-center sm:text-left w-full sm:w-4/5 md:w-2/3 lg:w-auto lg:flex-1 lg:max-w-xl xl:max-w-2xl px-4 sm:px-0">
+    <div className="flex flex-col self-center text-center sm:text-left w-full sm:w-4/5 md:w-2/3 lg:w-auto lg:flex-1 lg:max-w-xl xl:max-w-4xl px-4 sm:px-0">
         <h2 className="font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight text-corbinRed">
             Corbin Activity Hub
         </h2>
@@ -61,7 +61,7 @@ const WeatherCard = memo(({ weather }: { weather: Weather }) => {
 
     return (
         <div
-            className="rounded-xl bg-corbinGray/50 shadow-lg p-3 sm:p-4 mx-2 sm:mx-0 my-3 h-auto sm:min-h-[12rem]" // Adjusted mx for consistency with MainCard's children
+            className="rounded-xl bg-corbinGray/50 shadow-lg p-3 sm:p-4 mx-2 sm:mx-0 my-3 h-auto sm:min-h-[12rem]"
             role="region"
             aria-label="Current weather information"
         >
@@ -132,7 +132,7 @@ const MainCard = memo(({
     error: Error | null;
     onRetry: () => void;
 }) => (
-    <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:w-auto lg:flex-shrink-0 bg-corbinBlue rounded-2xl shadow-lg p-3 sm:p-4 md:p-5">
+    <div className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:w-auto lg:flex-shrink-0 xl:max-w-xl 2xl:max-w-2xl bg-corbinBlue rounded-2xl shadow-lg p-3 sm:p-4 md:p-5 self-center">
         <div className="rounded-2xl bg-corbinGreen flex flex-col justify-center gap-3 sm:gap-4 shadow-lg p-3 sm:p-4">
             <div className="text-center">
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-lightCorbin">Welcome!</h3>
@@ -150,6 +150,7 @@ const MainCard = memo(({
             </div>
         </div>
     </div>
+
 ));
 
 MainCard.displayName = 'MainCard';
@@ -197,7 +198,7 @@ function useWeather(refreshInterval = 60000) {
         } catch (err) {
             console.error("Weather fetch error:", err);
             setError(err as Error);
-            setWeather(null); // Clear weather data on error
+            setWeather(null);
         } finally {
             setLoading(false);
         }
@@ -229,7 +230,7 @@ function Home() {
     return (
         <PageLayout>
             {loading ? (
-                <div className="flex justify-center items-center h-full w-full"> {/* Ensure spinner is centered */}
+                <div className="flex justify-center items-center min-h-screen w-full">
                     <LoadingSpinner />
                 </div>
             ) : (

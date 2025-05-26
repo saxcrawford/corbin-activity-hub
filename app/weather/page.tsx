@@ -184,11 +184,11 @@ function Weather() {
   }
 
   return (
-      <div className="bg-background min-h-screen text-corbinBlue">
+      <div className="bg-background min-h-screen flex flex-col">
         <div className="w-full">
           <Navbar />
         </div>
-        <main className="px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <main className="flex-grow flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
           <div className="flex flex-col items-center text-center mb-8 sm:mb-10">
             <div className="max-w-2xl">
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-corbinRed">

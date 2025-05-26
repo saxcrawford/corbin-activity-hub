@@ -4,12 +4,12 @@ import Navbar from "../components/navbar";
 function Corbin_Eatery() {
   return (
       <>
-        <div className="bg-background min-h-screen">
-          <div className="flex gap-2 p-8 sm:flex-row sm:items-center sm:gap-6 sm:py-4">
+        <div className="bg-background min-h-screen flex flex-col">
+          <div className="w-full">
             <Navbar />
           </div>
 
-          <div className="flex flex-col items-center justify-center px-4">
+          <div className="flex-grow flex flex-col items-center justify-center px-4">
             <div className="text-center max-w-2xl mx-auto">
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-corbinRed mb-4">
@@ -57,10 +57,6 @@ function Corbin_Eatery() {
                   Expected to be available soon
                 </p>
               </div>
-            </div>
-
-            <div className="absolute top-40 right-20 opacity-20">
-              <div className="w-6 h-6 bg-corbinBlue rounded-full animate-pulse delay-300"></div>
             </div>
           </div>
         </div>
