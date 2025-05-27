@@ -11,7 +11,7 @@ function History() {
                 <Navbar/>
             </div>
 
-            <main className="flex-grow flex items-center justify-center mx-auto xl:max-w-2/3 px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <main className="flex-grow flex items-center justify-center mx-auto xl:max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 xl:gap-30 items-center justify-center lg:justify-start">
                     <div className="flex flex-col w-full lg:w-1/3 lg:sticky lg:top-8">
                         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-corbinRed">
