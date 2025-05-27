@@ -230,12 +230,9 @@ function Home() {
     return (
         <PageLayout>
             {loading ? (
-                <div className="bg-background min-h-screen flex flex-col">
-                    <div className="w-full"><Navbar /></div>
-                    <main className="flex items-center justify-center">
-                        <LoadingSpinner />
-                    </main>
-                </div>
+                <main className="flex items-center justify-center">
+                    <LoadingSpinner />
+                </main>
             ) : (
                 <>
                     <InfoSection />
