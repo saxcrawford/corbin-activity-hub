@@ -1,8 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import { getRestaurants } from "../lib/data/restaurants";
-import Image from "next/image";
-import cumberlandFalls from "@/app/images/cumberlandFalls.jpeg";
 import Link from "next/link";
 
 const RestaurantCards = ({
