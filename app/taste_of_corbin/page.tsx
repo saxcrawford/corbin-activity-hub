@@ -5,9 +5,11 @@ import Link from "next/link";
 
 const RestaurantCards = ({
   name,
+    rating,
   description,
 }: {
   name: string;
+  rating: number;
   description: string;
 }) => {
   return (
@@ -19,13 +21,18 @@ const RestaurantCards = ({
             className="flex flex-col bg-corbinGreen justify-between rounded-2xl border-2 border-lightCorbin bg-corbinGray/30 p-4 min-h-[12rem] sm:min-h-[14rem] h-full transition-all duration-200 ease-in-out group-hover:bg-corbinGreen/90 group-focus:bg-corbinGreen/90 group-hover:shadow-xl group-focus:shadow-xl"
         >
           <div>
-            <h2 className="text-lg sm:text-xl font-semibold mb-2 text-white group-hover:text-lightCorbin group-focus:text-lightCorbin transition-colors">
+            <h2 className="text-lg sm:text-xl font-semibold mb-2 text-white ">
               {name}
             </h2>
           </div>
           <div>
             <p
-                className="text-sm sm:text-base font-normal text-white opacity-0 transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-focus:opacity-100 group-hover:text-lightCorbin group-focus:text-lightCorbin"
+                className="text-sm sm:text-base font-normal text-white transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-focus:opacity-100"
+            >
+              {rating}
+            </p>
+            <p
+                className="text-sm sm:text-base font-normal text-white transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-focus:opacity-100"
             >
               {description}
             </p>
@@ -69,6 +76,7 @@ function Corbin_Eatery() {
                     <RestaurantCards
                         key={index}
                         name={restaurant.name}
+                        rating={restaurant.rating}
                         description={restaurant.description}
                     />
                 ))}
