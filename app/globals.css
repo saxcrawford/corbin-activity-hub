@@ -8,12 +8,12 @@
 @theme inline {
   --color-background: #faf0e6;
   --color-corbinRed: #733635;
-  --color-corbinRedLight: #b25958;
   --color-corbinBlue: #003153;
-  --color-lightCorbin: #faf0e6;
   --color-corbinGray: #d9d9d9;
-  --color-corbinDarkGray: #7b807a;
   --color-corbinGreen: #355e3b;
+  --color-corbinRedLight: #b25958;
+  --color-lightCorbin: #faf0e6;
+  --color-corbinDarkGray: #7b807a;
   --color-corbinLightBlue: #166084;
   --color-corbinSalmon: #e7625f;
   --color-corbinCream: #ffdead;
