@@ -20,12 +20,12 @@ const RestaurantCards = ({
             tabIndex={0}
         >
             <div
-                className="bg-corbinRedLight rounded-tl-2xl rounded-tr-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[10rem] sm:min-h-[12rem] h-full transition-all duration-200 ease-in-out group-hover:shadow-xl group-focus:shadow-xl"
+                className="bg-corbinRedLight rounded-tl-2xl rounded-tr-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[10rem] sm:min-h-[12rem] h-full transition-all duration-200 ease-in-out"
             >
                 test
             </div>
             <div
-                className="flex flex-col bg-white justify-between rounded-bl-2xl rounded-br-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[12rem] sm:min-h-[14rem] h-full transition-all duration-200 ease-in-out group-hover:shadow-xl group-focus:shadow-xl"
+                className="flex flex-col bg-white justify-between rounded-bl-2xl rounded-br-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[12rem] sm:min-h-[14rem] h-full transition-all duration-200 ease-in-out"
             >
                 <div>
                     <h2 className="text-lg sm:text-xl mb-1 font-semibold text-corbinBlue ">
@@ -105,18 +105,6 @@ function Corbin_Eatery() {
                             ))}
                         </div>
                     </section>
-
-                    <div className="flex w-full justify-center">
-                        <Link
-                            href="https://parks.ky.gov/explore/cumberland-falls-state-resort-park-7786#trails"
-                            className="corbin-button inline-block bg-corbinBlue text-white cursor-pointer rounded-full py-2.5 px-6 text-sm sm:text-base font-medium hover:scale-105 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-corbinLightBlue focus-visible:ring-offset-2 focus-visible:ring-offset-background active:bg-corbinLightBlue/80"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="See more trails at Kentucky State Parks website"
-                        >
-                            See More Trails
-                        </Link>
-                    </div>
                 </main>
             </div>
         </>
