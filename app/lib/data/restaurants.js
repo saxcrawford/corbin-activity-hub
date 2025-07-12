@@ -12,7 +12,7 @@ const restaurants = [
         id: 2,
         name: "Amrit Cuisine of India",
         cuisine: "Indian",
-        description: "Offers authentic Indian cuisine with a focus on fresh, high-quality ingredients. They aim to provide an enjoyable dining experience with popular dishes like Garlic Naan and Chicken Tikka Masala.",
+        description: "Authentic Indian cuisine with a focus on fresh, high-quality ingredients. Provides an enjoyable dining experience with popular dishes like Garlic Naan and Chicken Tikka Masala.",
         rating: 4.1,
         image: "/images/restaurants/wrigley.jpg",
         priceRange: "$10-20 per person",

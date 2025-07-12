@@ -5,34 +5,46 @@ import Link from "next/link";
 
 const RestaurantCards = ({
                              name,
+                             cuisine,
                              rating,
                              description,
                          }: {
     name: string;
+    cuisine: string;
     rating: number;
     description: string;
 }) => {
     return (
         <div
-            className="flex flex-col rounded-2xl transition-transform duration-200 ease-in-out group hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-corbinRed focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="flex flex-col shadow-md rounded-2xl transition-transform duration-200 ease-in-out group hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-corbinRed focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             tabIndex={0}
         >
             <div
-                className="flex flex-col bg-corbinGreen justify-between rounded-2xl border-2 border-lightCorbin bg-corbinGray/30 p-4 min-h-[12rem] sm:min-h-[14rem] h-full transition-all duration-200 ease-in-out group-hover:bg-corbinGreen/90 group-focus:bg-corbinGreen/90 group-hover:shadow-xl group-focus:shadow-xl"
+                className="bg-corbinRedLight rounded-tl-2xl rounded-tr-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[10rem] sm:min-h-[12rem] h-full transition-all duration-200 ease-in-out group-hover:shadow-xl group-focus:shadow-xl"
+            >
+                test
+            </div>
+            <div
+                className="flex flex-col bg-white justify-between rounded-bl-2xl rounded-br-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[12rem] sm:min-h-[14rem] h-full transition-all duration-200 ease-in-out group-hover:shadow-xl group-focus:shadow-xl"
             >
                 <div>
-                    <h2 className="text-lg sm:text-xl font-semibold mb-2 text-white ">
+                    <h2 className="text-lg sm:text-xl mb-1 font-semibold text-corbinBlue ">
                         {name}
                     </h2>
-                </div>
-                <div>
                     <p
-                        className="text-sm sm:text-base font-normal text-white transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-focus:opacity-100"
+                        className="text-sm sm:text-base mb-1 font-normal text-corbinBlue"
+                    >
+                        {cuisine}
+                    </p>
+                    <p
+                        className="text-sm sm:text-base font-normal text-corbinBlue"
                     >
                         {rating}
                     </p>
+                </div>
+                <div>
                     <p
-                        className="text-sm sm:text-base font-normal text-white transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-focus:opacity-100"
+                        className="text-sm sm:text-base font-normal text-corbinBlue transition-opacity duration-300 ease-in-out group-hover:opacity-100 group-focus:opacity-100"
                     >
                         {description}
                     </p>
@@ -46,7 +58,7 @@ const RestaurantType = ["American", "Indian", "Pizza", "Barbecue", "Bar & Grill"
 function Corbin_Eatery() {
     const restaurantInfo = getRestaurants();
     const restaurantTypes = RestaurantType.map(type =>
-        <button key={type}>{type}</button>
+        <button className="bg-corbinGray rounded-full cursor-pointer text-corbinBlue font-semibold px-5 py-2 mb-5 hover:bg-corbinGreen hover:text-lightCorbin hover:scale-105 transition-all duration-200" key={type}>{type}</button>
     );
 
     return (
@@ -72,7 +84,7 @@ function Corbin_Eatery() {
                         </div>
                     </section>
 
-                    <section className="w-full flex items-center">
+                    <section className="w-full flex items-center justify-center gap-5">
                         {restaurantTypes}
                     </section>
 
@@ -86,6 +98,7 @@ function Corbin_Eatery() {
                                 <RestaurantCards
                                     key={index}
                                     name={restaurant.name}
+                                    cuisine={restaurant.cuisine}
                                     rating={restaurant.rating}
                                     description={restaurant.description}
                                 />
