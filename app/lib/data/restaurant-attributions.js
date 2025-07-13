@@ -1,13 +1,12 @@
-// lib/data/attributions.js
-const attributions = [
+const restaurantAttributions = [
     {
         id: 1,
-        startAuthor: "By Derek1252",
-        startAuthorWiki: "User:Derek1252",
-        link: "https://commons.wikimedia.org/w/index.php?title=User:Derek1252&amp;action=edit&amp;redlink=1",
-        linkCC: "https://commons.wikimedia.org/w/index.php?curid=25097468",
-        creativeCommons: "CC BY-SA 3.0",
-        linkWiki: "https://creativecommons.org/licenses/by-sa/3.0",
+        startAuthor: "By Michael Rivera",
+        startAuthorWiki: "User:Mjrmtg",
+        link: "https://commons.wikimedia.org/wiki/User:Mjrmtg",
+        linkCC: "https://commons.wikimedia.org/w/index.php?curid=40559229",
+        creativeCommons: "CC BY-SA 4.0",
+        linkWiki: "https://creativecommons.org/licenses/by-sa/4.0",
     },
     {
         id: 2,
@@ -29,8 +28,8 @@ const attributions = [
     },
 ];
 
-function getAttributions() {
-    return attributions;
+function getRestaurantAttributions() {
+    return restaurantAttributions;
 }
 
-export { getAttributions };
+export { getRestaurantAttributions };

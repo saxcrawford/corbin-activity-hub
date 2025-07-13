@@ -1,18 +1,21 @@
 import React from "react";
 import Navbar from "../components/navbar";
 import {getRestaurants} from "../lib/data/restaurants";
-import Link from "next/link";
+import Image from "next/image";
+import styles from "@/app/components/carousel.module.css";
 
 const RestaurantCards = ({
                              name,
                              cuisine,
                              rating,
                              description,
+                             image,
                          }: {
     name: string;
     cuisine: string;
     rating: number;
     description: string;
+    image: string;
 }) => {
     return (
         <div
@@ -20,9 +23,16 @@ const RestaurantCards = ({
             tabIndex={0}
         >
             <div
-                className="bg-corbinRedLight rounded-tl-2xl rounded-tr-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[10rem] sm:min-h-[12rem] h-full transition-all duration-200 ease-in-out"
+                className="min-h-[10rem] sm:min-h-[12rem] h-full transition-all duration-200 ease-in-out"
             >
-                test
+                <Image
+                    src={image}
+                    alt={`Corbin area image`}
+                    width={500}
+                    height={500}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className={"h-full object-cover rounded-tl-2xl rounded-tr-2xl border-t-1 border-r-1 border-l-1 border-white"}
+                />
             </div>
             <div
                 className="flex flex-col bg-white justify-between rounded-bl-2xl rounded-br-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[12rem] sm:min-h-[14rem] h-full transition-all duration-200 ease-in-out"
@@ -58,7 +68,9 @@ const RestaurantType = ["American", "Indian", "Pizza", "Barbecue", "Bar & Grill"
 function Corbin_Eatery() {
     const restaurantInfo = getRestaurants();
     const restaurantTypes = RestaurantType.map(type =>
-        <button className="bg-corbinGray rounded-full cursor-pointer text-corbinBlue font-semibold px-5 py-2 mb-5 hover:bg-corbinGreen hover:text-lightCorbin hover:scale-105 transition-all duration-200" key={type}>{type}</button>
+        <button
+            className="bg-corbinGray rounded-full cursor-pointer text-corbinBlue font-semibold px-5 py-2 mb-5 hover:bg-corbinGreen hover:text-lightCorbin hover:scale-105 transition-all duration-200"
+            key={type}>{type}</button>
     );
 
     return (
@@ -70,7 +82,8 @@ function Corbin_Eatery() {
 
                 <main
                     className="flex-grow flex flex-col items-center justify-center pb-8 ">
-                    <section className="w-full bg-gradient-to-r from-corbinBlue to-lightCorbin flex flex-col items-center text-center mb-8 py-8 sm:mb-10 md:mb-12">
+                    <section
+                        className="w-full bg-gradient-to-r from-corbinBlue to-lightCorbin flex flex-col items-center text-center mb-8 py-8 sm:mb-10 md:mb-12">
                         <div className="max-w-2xl">
                             <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-lightCorbin text-shadow-md">
                                 Taste of Corbin
@@ -91,7 +104,6 @@ function Corbin_Eatery() {
                     <section
                         className="relative rounded-2xl max-w-7xl mx-auto overflow-hidden mb-8 sm:mb-10 md:mb-12"
                     >
-
                         <div
                             className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 p-4 sm:p-5 md:p-6">
                             {restaurantInfo.map((restaurant, index) => (
@@ -101,6 +113,7 @@ function Corbin_Eatery() {
                                     cuisine={restaurant.cuisine}
                                     rating={restaurant.rating}
                                     description={restaurant.description}
+                                    image={restaurant.image}
                                 />
                             ))}
                         </div>
