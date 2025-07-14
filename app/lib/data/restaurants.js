@@ -15,7 +15,7 @@ const restaurants = [
         description: "Authentic Indian cuisine with a focus on fresh, high-quality ingredients. Provides an enjoyable dining experience with popular dishes like Garlic Naan and Chicken Tikka Masala.",
         rating: 4.1,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/Chicken_Tikka_Masala.jpeg",
     },
     {
         id: 3,
@@ -24,7 +24,7 @@ const restaurants = [
         description: "Offers New York-style pizza and Italian cuisine, featuring homemade recipes passed down through three generations.",
         rating: 4.3,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/NYPizzaPie.jpg",
     },
     {
         id: 4,
@@ -33,7 +33,7 @@ const restaurants = [
         description: "Pulled pork, catfish & classic Southern sides offered in a straightforward buffet-style restaurant.",
         rating: 4.5,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/BBQ_Lamb.jpg",
     },
     {
         id: 5,

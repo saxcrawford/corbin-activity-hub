@@ -31,7 +31,7 @@ const RestaurantCards = ({
                     width={500}
                     height={500}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className={"h-full object-cover rounded-tl-2xl rounded-tr-2xl border-t-1 border-r-1 border-l-1 border-white"}
+                    className="h-full object-cover rounded-tl-2xl rounded-tr-2xl border-t-1 border-r-1 border-l-1 border-white"
                 />
             </div>
             <div
