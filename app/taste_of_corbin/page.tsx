@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "../components/navbar";
 import {getRestaurants} from "../lib/data/restaurants";
 import Image from "next/image";
-import styles from "@/app/components/carousel.module.css";
 
 const RestaurantCards = ({
                              name,

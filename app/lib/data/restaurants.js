@@ -42,7 +42,7 @@ const restaurants = [
         description: "Offers a pizza buffet, salad bar, pasta bar, and a gameroom with bumper cars, making it a family-friendly dining and entertainment option.",
         rating: 3.7,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/Gatti's_Pizza.jpeg",
     },
     {
         id: 6,
@@ -51,7 +51,7 @@ const restaurants = [
         description: "Chinese buffet offering a wide range of flavorful dishes with fresh ingredients, including popular items like Egg Rolls and Crab Rangoon.",
         rating: 3.7,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/Chinese_Cuisine.jpg",
     },
     {
         id: 7,
@@ -60,7 +60,7 @@ const restaurants = [
         description: "Authentic Mexican dining experience with homemade dishes, including fresh guacamole made at your table, and provides private party rooms and a spacious patio.",
         rating: 4.4,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/Quesadilla.jpeg",
     },
     {
         id: 8,
@@ -69,7 +69,7 @@ const restaurants = [
         description: "Broad range of fresh steaks, chicken, and pasta dishes, aiming to provide a great dining experience with quality food and service. They also have a full bar.",
         rating: 4.1,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/Steak.jpg",
     },
     {
         id: 9,
@@ -78,7 +78,7 @@ const restaurants = [
         description: "Fresh, authentic Mexican food in a family atmosphere, with options for dine-in and carry-out, and popular items like Cheese Dip and Classic Fajitas.",
         rating: 4.5,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/Carnitas.jpg",
     },
     {
         id: 10,
@@ -87,7 +87,7 @@ const restaurants = [
         description: "Pizza chain specializing in pizza, calzones, hoagies, salads, pasta, dessert, and appetizers, known for using fresh ingredients and an award-winning sauce.",
         rating: 4.3,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/Snappy_Pizza.png",
     },
     {
         id: 11,
@@ -96,7 +96,7 @@ const restaurants = [
         description: "Offering authentic sushi and Japanese steak, aiming to provide high-quality Asian food and an extraordinary dining experience.",
         rating: 4.2,
         priceRange: "$10-20 per person",
-        image: "/restaurants/Applebees.jpeg",
+        image: "/restaurants/Sushi.jpg",
     },
 ]
 
