@@ -1,4 +1,4 @@
-const restaurants = [
+export const restaurants = [
     {
         id: 1,
         name: "Applebee's Grill + Bar",
@@ -99,17 +99,3 @@ const restaurants = [
         image: "/restaurants/Sushi.jpg",
     },
 ]
-
-function getRestaurants() {
-    return restaurants;
-}
-
-function getRestaurantById(id) {
-    return restaurants.find((restaurant) => restaurant.id === id);
-}
-
-function getRestaurantsByType(type) {
-    return restaurants.filter(restaurant => restaurant.type === type);
-}
-
-export { getRestaurants, getRestaurantById, getRestaurantsByType };

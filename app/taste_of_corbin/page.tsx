@@ -1,7 +1,49 @@
-import React from "react";
+"use client"
+
 import Navbar from "../components/navbar";
-import {getRestaurants} from "../lib/data/restaurants";
+import { getRestaurantAttributions } from "../lib/data/restaurant-attributions"
 import Image from "next/image";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { restaurants } from "../lib/data/restaurants";
+
+interface AttributionProps {
+    startAuthor: string;
+    linkCC: string;
+    creativeCommons: string;
+    linkWiki: string;
+}
+
+const Attribution = ({
+                         startAuthor,
+                         linkCC,
+                         creativeCommons,
+                         linkWiki,
+                     }: AttributionProps) => (
+    <div className="col-span-full text-white border-x border-white bg-black/50 px-3 py-1.5 text-xs sm:text-sm mb-2 mr-auto sm:mb-0">
+        <span>Image by {startAuthor}: </span>
+        <Link
+            href={linkWiki}
+            title={`Creative Commons ${creativeCommons}`}
+            className="underline hover:text-corbinCream transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View Creative Commons ${creativeCommons} license details`}
+        >
+            {creativeCommons}
+        </Link>
+        , via{" "}
+        <Link
+            href={linkCC}
+            className="underline hover:text-corbinCream transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View on Wikimedia Commons"
+        >
+            Wikimedia Commons
+        </Link>
+    </div>
+);
 
 const RestaurantCards = ({
                              name,
@@ -9,12 +51,20 @@ const RestaurantCards = ({
                              rating,
                              description,
                              image,
+                             attribution,
                          }: {
     name: string;
     cuisine: string;
     rating: number;
     description: string;
     image: string;
+    attribution: {
+        id: number;
+        startAuthor: string;
+        linkCC: string;
+        creativeCommons: string;
+        linkWiki: string;
+    }
 }) => {
     return (
         <div
@@ -32,6 +82,17 @@ const RestaurantCards = ({
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="h-full object-cover rounded-tl-2xl rounded-tr-2xl border-t-1 border-r-1 border-l-1 border-white"
                 />
+            </div>
+            <div>
+                {attribution && (
+                    <Attribution
+                        key={attribution.id}
+                        startAuthor={attribution.startAuthor}
+                        linkCC={attribution.linkCC}
+                        creativeCommons={attribution.creativeCommons}
+                        linkWiki={attribution.linkWiki}
+                    />
+                )}
             </div>
             <div
                 className="flex flex-col bg-white justify-between rounded-bl-2xl rounded-br-2xl border-t-1 border-r-1 border-l-1 border-white p-4 min-h-[12rem] sm:min-h-[14rem] h-full transition-all duration-200 ease-in-out"
@@ -62,15 +123,41 @@ const RestaurantCards = ({
         </div>
     );
 }
-const RestaurantType = ["American", "Indian", "Pizza", "Barbecue", "Bar & Grill", "Mexican", "Japanese", "Chinese"]
 
 function Corbin_Eatery() {
-    const restaurantInfo = getRestaurants();
-    const restaurantTypes = RestaurantType.map(type =>
-        <button
-            className="bg-corbinGray rounded-full cursor-pointer text-corbinBlue font-semibold px-5 py-2 mb-5 hover:bg-corbinGreen hover:text-lightCorbin hover:scale-105 transition-all duration-200"
-            key={type}>{type}</button>
-    );
+    const attributionsArray = getRestaurantAttributions();
+    const attributions = attributionsArray.reduce((acc, attr) => {
+        acc[attr.id] = attr;
+        return acc;
+    }, {});
+    const [selectedFilters, setSelectedFilters] = useState([]);
+    const [filteredItems, setFilteredItems] = useState(restaurants);
+    const RestaurantType = ["American", "Indian", "Pizza", "Barbecue", "Bar & Grill", "Mexican", "Japanese", "Chinese"];
+
+    const handleFilterBtnClick = (selectedCategory) => {
+        if (selectedFilters.includes(selectedCategory)) {
+            let filters = selectedFilters.filter((el) => el !== selectedCategory);
+            setSelectedFilters(filters);
+        } else {
+            setSelectedFilters([...selectedFilters, selectedCategory]);
+        }
+    };
+
+    useEffect(() => {
+        filterItems();
+    }, [selectedFilters]);
+
+    const filterItems = () => {
+        if (selectedFilters.length > 0) {
+            let tempItems = selectedFilters.map((selectedCategory) => {
+                let temp = restaurants.filter((restaurant) => restaurant.cuisine === selectedCategory);
+                return temp;
+            });
+            setFilteredItems(tempItems.flat());
+        } else {
+            setFilteredItems([...restaurants]);
+        }
+    };
 
     return (
         <>
@@ -97,7 +184,22 @@ function Corbin_Eatery() {
                     </section>
 
                     <section className="w-full flex items-center justify-center gap-5">
-                        {restaurantTypes}
+                        <div className="flex flex-wrap gap-2 justify-center">
+                            {RestaurantType.map((type) => (
+                                <button
+                                    key={type}
+                                    onClick={() => handleFilterBtnClick(type)}
+                                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                                        selectedFilters.includes(type)
+                                            ? "bg-corbinRed text-white"
+                                            : "bg-gray-200 text-corbinBlue hover:bg-gray-300"
+                                    }`}
+                                    aria-pressed={selectedFilters.includes(type)}
+                                >
+                                    {type}
+                                </button>
+                            ))}
+                        </div>
                     </section>
 
                     <section
@@ -105,7 +207,7 @@ function Corbin_Eatery() {
                     >
                         <div
                             className="relative z-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-5 md:gap-6 p-4 sm:p-5 md:p-6">
-                            {restaurantInfo.map((restaurant, index) => (
+                            {filteredItems.map((restaurant, index) => (
                                 <RestaurantCards
                                     key={index}
                                     name={restaurant.name}
@@ -113,9 +215,11 @@ function Corbin_Eatery() {
                                     rating={restaurant.rating}
                                     description={restaurant.description}
                                     image={restaurant.image}
+                                    attribution={attributions[restaurant.id]}
                                 />
                             ))}
                         </div>
+
                     </section>
                 </main>
             </div>
